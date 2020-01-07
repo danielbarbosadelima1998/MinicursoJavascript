@@ -6,6 +6,8 @@ function App() {
   const [toggle, setToggle] = useState(false);
   var A = [1, 2, 3, 4, 5, 6];
   var B = [7, 8, 9, 10, 11, 12];
+  var C = ['uva', 'limão', 'maçã', 'pera', 'abacaxi', 'beterraba'];
+  var D = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'];
   return (
     <div >
       <div >
@@ -92,8 +94,13 @@ function App() {
         <p> copia parte de um array para outra localização dentro deste mesmo array e o retorna</p>
         ['a','b','c','d','e','f','g','h', 'i', 'j', 'k', 'l', 'm', 'n'].copyWithin(0, 3);
         Resultado:
-
-        {['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'].copyWithin(0, 3).map((item) => <li>{item}</li>)}
+        <br />
+        {D.copyWithin(0, 3).map((item) => <li>{item}</li>)}
+        <br />
+        <br />
+        {
+          D.map(item => <li>{item}</li>)
+        }
       </div>
       <div>
         <h1>Função every</h1>
@@ -209,7 +216,43 @@ function App() {
         <h1> reverse</h1>
         <p> reverte a posição de todos os elementos do array (123... => 321...) e mantem os indices</p>
         [1,2,3,4,5,6]
-      {[1, 2, 3, 4, 5, 6].reverse().map((item,index) => <li> [{index}] = {item}</li>)}
+      {[1, 2, 3, 4, 5, 6].reverse().map((item, index) => <li> [{index}] = {item}</li>)}
+      </div>
+      <div>
+        <h1>slice</h1>
+        <p>retorna uma parte do array</p>
+        [2,4,6,8,1,2,3] <br />
+        [2, 4, 6, 8, 1, 2, 3].slice(2, 5)
+        {[2, 4, 6, 8, 1, 2, 3].slice(2, 5).map(item => <li>{item}</li>)}
+      </div>
+      <div>
+        <h1>some</h1>
+        <p>retorna true se pelo menos um elemento passar na validação implementada senão retorna false</p>
+        [1,2,3,4,5,6,7] <br />
+        [1,2,3,4,5,6,7].some(item => item > 6)<br />
+        {[1, 2, 3, 4, 5, 6, 7].some(item => item > 6) ? 'true' : 'false'}
+      </div>
+      <div>
+        <h1>sort</h1>
+        <p>ordena os elementos do array no padrão unicode e retorna o array</p>
+        ['uva', 'limão','maçã', 'pera', 'abacaxi','beterraba'] <br />
+
+        Resultado ['uva', 'limão', 'maçã', 'pera', 'abacaxi', 'beterraba'].sort((a, b) => a - b) <br />
+        {['uva', 'limão', 'maçã', 'pera', 'abacaxi', 'beterraba'].sort().map(item => <li>{item}</li>)}
+      </div>
+
+      <div>
+        <h1>splice</h1>
+        <p>remove a e adiciona elementos ao array e retorna um array das remoções.</p> <br />
+        ['uva', 'limão','maçã', 'pera', 'abacaxi','beterraba'] <br /><br />
+        ['uva', 'limão','maçã', 'pera', 'abacaxi','beterraba'].splice(0,3,'kkkkk') <br />
+
+        Retorno do Splice: <br />
+        {C.splice(0, 3, 'kkkkk').map(item => <li>{item}</li>)}
+
+        <br /><br />
+        Retorno do Array depois do Splice: <br />
+        {C.map(item => <li>{item}</li>)}
       </div>
     </div>
   );
